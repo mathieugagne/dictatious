@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "rubygems"
+require "bundler/setup"
+
+require "pathname"
+require "fileutils"
+include FileUtils
+
+$LOAD_PATH.unshift File.expand_path("lib")
+require "dictatious"
+
+APP_ROOT = Pathname.new File.expand_path("..", __dir__)
+
+chdir(APP_ROOT) do
+
+  output = File.read(ARGV[0])
+  words  = eval(output)
+
+  words.each do |word|
+    Dictatious::Request.new(word).perform
+  end
+end
