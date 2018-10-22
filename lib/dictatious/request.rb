@@ -16,7 +16,7 @@ module Dictatious
                      .post(URL, body: JSON.generate(params))
       audio_base64 = response.parse["audioContent"]
       audio_mp3    = Base64.decode64(audio_base64)
-      path         = File.expand_path("../../data/output/module_2_week_1/#{word}.mp3", __dir__)
+      path         = File.expand_path("../../data/output/module_2_week_2/#{word}.mp3", __dir__)
       File.open(path, "w+") do |file|
         file.write(audio_mp3)
       end
