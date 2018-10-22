@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "rubygems"
+require "bundler/setup"
+
+require "pathname"
+require "fileutils"
+include FileUtils
+
+$LOAD_PATH.unshift File.expand_path("lib")
+require "dictatious"
+
+APP_ROOT = Pathname.new File.expand_path("..", __dir__)
+
+chdir(APP_ROOT) do
+
+  output = File.read(ARGV[0])
+  words  = eval(output)
+
+  words.shuffle.each do |word|
+    3.times do
+      system("mpg123 -o pulse -q data/output/module_2_week_2/#{word}.mp3")
+      system("sleep 3")
+    end
+    system("sleep 2")
+  end
+end
