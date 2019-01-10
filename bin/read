@@ -16,11 +16,11 @@ APP_ROOT = Pathname.new File.expand_path("..", __dir__)
 chdir(APP_ROOT) do
 
   output = File.read(ARGV[0])
-  words  = eval(output)
+  words  = JSON.parse(output)
 
   words.shuffle.each do |word|
     4.times do
-      system("mpg123 -o pulse -q data/output/module_3_week_1/#{word}.mp3")
+      system("mpg123 -o pulse -q data/output/module_4_week_1/#{word}.mp3")
       system("sleep 3")
     end
     system("sleep 2")
