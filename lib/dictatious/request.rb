@@ -32,7 +32,7 @@ module Dictatious
         },
         audioConfig: {
           audioEncoding: "MP3",
-          speakingRate:  "0.80"
+          speakingRate:  "0.70"
         }
       }
     end
