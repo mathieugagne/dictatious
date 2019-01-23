@@ -20,7 +20,7 @@ chdir(APP_ROOT) do
 
   words.shuffle.each do |word|
     4.times do
-      system("mpg123 -o pulse -q data/output/module_4_week_1/#{word}.mp3")
+      system("mpg123 -o pulse -q data/output/module_4_week_3/#{word}.mp3")
       system("sleep 3")
     end
     system("sleep 2")
